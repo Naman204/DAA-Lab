@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+int binarySearch(int arr[], int low, int high, int key) {
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (arr[mid] == key)
+            return mid;
+
+        else if (arr[mid] > key)
+            high = mid - 1;
+
+
+        else
+            low = mid + 1;
+    }
+
+    return -1;
+}
+
+int main(){
+    cout<<"Enter the number of test cases: ";
+    int a=0,t,n,count=0;
+    cin>>t;
+    while(a<t){
+        int arr[100];
+        cout<<"Enter the size of Array: ";
+        cin>>n;
+        for(int i = 0; i<n; i++){
+            cin>>arr[i];
+        }
+        int key;
+        cout<<"Enter Key: ";
+        cin>>key;
+        int mid;
+        mid=binarySearch(arr,0,n,key);
+        if(mid!=-1){
+            count++;
+            int temp=mid-1;
+            while(arr[temp]==key && temp > 0){
+                count++;
+                temp--;
+            }
+            temp=mid+1;
+            while(arr[temp]==key && temp < n){
+                count++;
+                temp++;
+            }
+            cout<<arr[mid]<<'-'<<count<<endl;
+        }
+        else{
+            cout<<"Not Found";
+        }
+        a++;
+    }
+    return 0;
+}
