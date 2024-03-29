@@ -53,9 +53,9 @@ int main() {
         }
         //cheks duplicate
         if (hasDuplicates(arr, size)) {
-            cout << "Array contains duplicates\n";
+            cout << "\n";
         } else {
-            cout << "Array does not contain duplicates\n";
+            cout << "NO\n";
         }
         t--;
     }
